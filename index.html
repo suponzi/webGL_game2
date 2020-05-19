@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>New my test3</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Unity WebGL Player | mygame</title>
     <script src="Build/UnityLoader.js"></script>
+    <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+    </style>
     <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/sumaho.json", {onProgress: UnityProgress});
+      UnityLoader.SystemInfo.mobile = false;
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/sumaho.json");
     </script>
-</head>
-<body>
-<div class="webgl-content">
-    <div id="gameContainer" style="width: 500px; height: 1000px"></div>
-</div>
-<div class="simmer">template by: <a href="https://simmer.io" target="_blank">SIMMER.io</a></div>
-<script src="TemplateData/responsive.javascript"></script>
-</body>
+  </head>
+  <body bgcolor="#000000">
+    <script>
+      document.write('<div id="gameContainer" style="width: '+
+        document.documentElement.clientWidth+'px; height: '+
+        document.documentElement.clientHeight+'px; margin: auto"></div>')
+      var canvas = document.getElementById("gameContainer") ;
+      window.onresize = function(){
+        canvas.style.width = document.documentElement.clientWidth+"px";
+        canvas.style.height = document.documentElement.clientHeight+"px";
+      }
+    </script>
+  </body>
 </html>
